@@ -1,0 +1,51 @@
+---
+title: "Using data.table the tidy way"
+author: Huang Tian-Yuan (Hope)
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using data.table the tidy way}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Story ahead
+
+   I am a big fan of `tidyverse`, however, when I have to deal with a data.frame of larger than 1G, I turned to `data.table`. But `data.table` is not easy, and is not so readable as `tidyverse`. Even today, I still need to explore for long time before I could use `data.table` correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use `tidyverse`. If the file is between 1G and 10G, I would use `data.table` to do some major work and turned back to `tidyverse` when possible. This has been annoying acutually.  
+   
+  Until one day, I met `maditr` package. It told me that the manipulation of `data.table` does not have to be in this way. This could be done in a tidy way! And, you don't even need to use other packages to build this elegant API, you just need `data.table` and `magrittr`! I was shocked! To use a fast `tidyverse` is what I dream for long, and it could!  
+  
+   By now, Hadley has completed the `dtplyr`, which facilitate the workflow. However, many verbs are still not supported. I think it's my time to contribute. I used a lot of functions from `maditr`, but with a different API. It has a specific goal: provide users with state-of-the-art data manipulation tools with least pain and fastest speed.
+
+## Examples
+
+
+  For most functions, just use it like `tidyverse`, but add a `_dt` as the suffix. This is mostly true for verbs in `dplyr`. Nevertheless, the data.table has different features, and some API varies, but only varies for more convenience. Below are the supported verbs:
+  
+  
+- basic manipulation: select_dt/slice_dt/filter_dt/mutate_dt/arrange_dt/summarise_dt/rename_dt/dist inct_dt
+- count family: count_dt/add_count_dt/topn_dt/topfrac_dt
+- join: left_join_dt/right_join_dt/inner_join_dt/full_join_dt/anti_join_dt/semi_join_dt
+- nest: nest_dt/unnese_dt
+- wide-long transformation: longer_dt/wider_dt
+
+
+I'll give only one example so far, just explore yourself and enjoy the fun!
+
+```{r setup}
+library(tidydt)
+
+iris %>%
+  mutate_dt(group = Species,sl = Sepal.Length,sw = Sepal.Width) %>%
+  select_dt(group,sl,sw) %>%
+  filter_dt(sl > 5) %>%
+  arrange_dt(group,sl) %>%
+  distinct_dt(sl,keep_all = T) %>%
+  summarise_dt(sw = max(sw),by = group)
+```
