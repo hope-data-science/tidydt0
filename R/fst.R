@@ -7,6 +7,7 @@
 #' @param pattern Regular expression to match the column names
 #' @return \code{parse_fst} returns a fst_table class.
 #' @return \code{select_fst} returns a data.table.
+#' @seealso \code{\link[fst]{fst}}
 #' @examples
 #' fst::write_fst(iris,"iris_fst_test.fst")
 #'
@@ -30,7 +31,7 @@ parse_fst = function(path){
 select_fst = function(ft,pattern){
   grepl(pattern,names(ft)) -> logical_vec
   if(all(logical_vec == FALSE)) {
-    warning("No matched columns,try other patterns.Names of the `fst_table` are listed above.")
+    warning("No matched columns,try other patterns.Names of the `fst_table` are listed.")
     names(ft)
   } else
   ft[,logical_vec] %>% as.data.table()

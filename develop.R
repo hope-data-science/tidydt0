@@ -26,6 +26,7 @@ submit_cran()
 
 # https://github.com/GuangchuangYu/badger
 badge_devel("guangchuangyu/ggtree", "blue")
+badge_devel("hope-data-science/tidydt", "blue")
 
 
 use_logo(file.choose())
