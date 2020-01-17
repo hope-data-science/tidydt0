@@ -14,7 +14,7 @@ Description: A toolkit of tidy data manipulation verbs with `data.table` as the 
   This package is inspired by `maditr`, but follows a different philosophy of design, 
   such as prohibiting in place replacement and used a "_dt" suffix API.
   Also, `tidydt` would introduce more tidy data verbs from other packages,
-  including but not limit to `tidyverse` and `data.table`.
+  including but not limited to `tidyverse` and `data.table`.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
