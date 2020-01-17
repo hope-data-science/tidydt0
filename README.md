@@ -18,6 +18,7 @@
 - Never use in place replacement. 
 - Use suffix rather than prefix to increase the efficiency (especially when you have IDE with automatic code completion).
 - More verbs for big data manipulation.
+- Supporting data importing and parsing with `fst`, details see [parse_fst](https://hope-data-science.github.io/tidydt/reference/fst.html) and [select_fst](https://hope-data-science.github.io/tidydt/reference/fst.html).
 - Functions from `maditr` are still exported in `tidydt`, in such environment you can still use utilities in `data.table`, `magrittr` and `maditr` for further development and other extensions.
 
 
