@@ -36,3 +36,6 @@ ft \%>\% select_fst("nothing")
 rm(ft)
 unlink("iris_fst_test.fst")
 }
+\seealso{
+\code{\link[fst]{fst}}
+}

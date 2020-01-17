@@ -116,7 +116,7 @@
 <a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt;   groupingsets.data.frame maditr</span></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt;   rollup.data.frame       maditr</span></a>
 <a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; To select rows from data: take_if(mtcars, am==0)</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; To aggregate data: take(mtcars, mean_mpg = mean(mpg), by = am)</span></a>
 <a class="sourceLine" id="cb1-9" title="9"></a>
 <a class="sourceLine" id="cb1-10" title="10">iris <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb1-11" title="11"><span class="st">  </span><span class="kw"><a href="../reference/mutate_dt.html">mutate_dt</a></span>(<span class="dt">group =</span> Species,<span class="dt">sl =</span> Sepal.Length,<span class="dt">sw =</span> Sepal.Width) <span class="op">%&gt;%</span></a>
