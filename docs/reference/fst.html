@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tidydt</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -106,7 +106,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/hope-data-science/tidydt">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -121,7 +126,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Parse,inspect and extract `data.table` from `.fst` file</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/hope-data-science/tidydt/blob/master/R/fst.R'><code>R/fst.R</code></a></small>
     <div class="hidden name"><code>fst.Rd</code></div>
     </div>
 
@@ -188,7 +193,7 @@
 #&gt; 147:          6.3         2.5
 #&gt; 148:          6.5         3.0
 #&gt; 149:          6.2         3.4
-#&gt; 150:          5.9         3.0</div><div class='input'><span class='no'>ft</span> <span class='kw'>%&gt;%</span> <span class='fu'>select_fst</span>(<span class='st'>"nothing"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: No matched columns,try other patterns.Names of the `fst_table` are listed.</span></div><div class='output co'>#&gt; [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     </div><div class='input'>
+#&gt; 150:          5.9         3.0</div><div class='input'><span class='no'>ft</span> <span class='kw'>%&gt;%</span> <span class='fu'>select_fst</span>(<span class='st'>"nothing"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: No matched columns,try other patterns. Names of the `fst_table` are listed.</span></div><div class='output co'>#&gt; [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span>(<span class='no'>ft</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/unlink.html'>unlink</a></span>(<span class='st'>"iris_fst_test.fst"</span>)</div></span></pre>
   </div>

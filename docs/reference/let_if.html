@@ -87,7 +87,7 @@ Aggregate all non-grouping columns: take(mtcars, fun = mean, by = am)
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tidydt</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -116,7 +116,12 @@ Aggregate all non-grouping columns: take(mtcars, fun = mean, by = am)
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/hope-data-science/tidydt">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -131,7 +136,7 @@ Aggregate all non-grouping columns: take(mtcars, fun = mean, by = am)
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Modify, aggregate, select or filter data.frame/data.table</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/hope-data-science/tidydt/blob/master/R/let.R'><code>R/let.R</code></a></small>
     <div class="hidden name"><code>let_if.Rd</code></div>
     </div>
 
@@ -264,7 +269,7 @@ to data.table. <code>let</code> modify data.table object in-place.</p></td>
     <tr>
       <th>i</th>
       <td><p>integer/logical vector. Supposed to use to subset/conditional
-modifications of <code>data</code>. For details see <a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a></p></td>
+modifications of <code>data</code>. For details see <a href='https://rdrr.io/pkg/data.table/man/data.table.html'>data.table</a></p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -279,14 +284,14 @@ list(1,2)</a></code>)</p></td>
     <tr>
       <th>by</th>
       <td><p>unquoted name of grouping variable of list of unquoted names of
-grouping variables. For details see <a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a></p></td>
+grouping variables. For details see <a href='https://rdrr.io/pkg/data.table/man/data.table.html'>data.table</a></p></td>
     </tr>
     <tr>
       <th>keyby</th>
       <td><p>Same as <code>by</code>, but with an additional <code><a href='https://Rdatatable.gitlab.io/data.table/reference/setkey.html'>setkey()</a></code> run on the by
 columns of the result, for convenience. It is common practice to use
 'keyby=' routinely when you wish the result to be sorted. For details see
-<a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a>.</p></td>
+<a href='https://rdrr.io/pkg/data.table/man/data.table.html'>data.table</a>.</p></td>
     </tr>
     <tr>
       <th>with</th>

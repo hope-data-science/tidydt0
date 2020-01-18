@@ -19,8 +19,8 @@ data.table
 Analogous function for \code{rename} in \pkg{dplyr}
 }
 \examples{
-mtcars \%>\%
-  rename_dt(weight = "wt", displacement = "disp") \%>\%
+iris \%>\%
+  rename_dt(sl = Sepal.Length,sw = Sepal.Width) \%>\%
   head()
 }
 \seealso{
