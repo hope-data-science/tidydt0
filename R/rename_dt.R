@@ -7,15 +7,23 @@
 #' @return data.table
 #' @seealso \code{\link[dplyr]{rename}}
 #' @examples
-#' mtcars %>%
-#'   rename_dt(weight = "wt", displacement = "disp") %>%
+#' iris %>%
+#'   rename_dt(sl = Sepal.Length,sw = Sepal.Width) %>%
 #'   head()
 #' @export
 
 
 rename_dt = function(data, ...){
   if(!is.data.table(data)) data = as.data.table(data)
-  all_names = list(...)
-  setnames(data, old = unlist(all_names), new = names(all_names))
-  data
+  substitute(list(...)) %>%
+    deparse() %>%
+    str_extract("(?<=\\().+?(?=\\))") %>%
+    strsplit(",") %>%
+    unlist() -> dot_string
+  old_names = str_extract(dot_string,"(?<=\\=).+$") %>% str_trim()
+  new_names = str_extract(dot_string,"^.+(?=\\=)") %>% str_trim()
+  setnames(data,old = old_names,new = new_names) %>% as.data.table()
 }
+
+
+

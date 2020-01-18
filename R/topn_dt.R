@@ -19,7 +19,7 @@
 #' @rdname topn
 #' @export
 
-topn_dt = function(data, wt,n){
+top_n_dt = function(data, wt,n){
   if(data[[deparse(substitute(wt))]] %>% class != "numeric")
     stop("Please use a numeric variable.")
   data = as.data.table(data)
@@ -44,7 +44,7 @@ topn_dt = function(data, wt,n){
 #' @export
 #'
 ## put column name in front of number
-topfrac_dt = function(data, wt,n){
+top_frac_dt = function(data, wt,n){
   if(data[[deparse(substitute(wt))]] %>% class != "numeric")
     stop("Please use a numeric variable.")
   data = as.data.table(data)

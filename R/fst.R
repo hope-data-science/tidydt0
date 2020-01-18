@@ -31,7 +31,7 @@ parse_fst = function(path){
 select_fst = function(ft,pattern){
   grepl(pattern,names(ft)) -> logical_vec
   if(all(logical_vec == FALSE)) {
-    warning("No matched columns,try other patterns.Names of the `fst_table` are listed.")
+    warning("No matched columns,try other patterns. Names of the `fst_table` are listed.")
     names(ft)
   } else
   ft[,logical_vec] %>% as.data.table()

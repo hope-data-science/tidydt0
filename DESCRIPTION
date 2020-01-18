@@ -1,6 +1,6 @@
 Package: tidydt
 Title: Tidy Verbs for `data.table`
-Version: 0.1.5
+Version: 0.2.0
 Depends: R (>= 3.3.0)
 Authors@R: 
     person(given = "Tian-Yuan",
@@ -16,6 +16,7 @@ Description: A toolkit of tidy data manipulation verbs with `data.table` as the 
   Also, `tidydt` would introduce more tidy data verbs from other packages,
   including but not limited to `tidyverse` and `data.table`.
 License: GPL-2
+URL: https://github.com/hope-data-science/tidydt
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
@@ -23,7 +24,9 @@ Imports:
     maditr (>= 0.6.3),
     data.table (>= 1.12.6),
     magrittr (>= 1.5),
-    fst (>= 0.9.0)
+    fst (>= 0.9.0),
+    stringr,
+    glue
 Suggests: 
     knitr,
     rmarkdown
