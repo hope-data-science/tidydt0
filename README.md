@@ -51,7 +51,13 @@ iris %>%
 
 
 
-## Future plan
+## Caution
+
+Simply rewriting `tidyverse` function with `data.table` is not desirable unless we have a leap in speed. `tidyverse` is great, it is encouraged to load `tidyverse` and `tidydt` together and use `tidydt` when you have to wait a long time. Another option is to use `tidydt::` to use specific functions. Currently, the flagship functions include `unnest_dt`, `summarise_dt`(this credit belongs to `maditr`), `count_dt`, `parse_fst`,`select_fst`, `replace_na_dt`(you'll know how fast it is if you are dealing with big data).
+
+
+
+## Future plans
 
 1. `unnest_dt` is now fast enough to beat the `tidyr::unnest`, but the `nest_dt` function would build a nested data.table with `data.table` inside. How to use such data structure is remained to be seen, and the performance is still to be explored.
 2. `tidydt` currently do not have `group_by`, but the `summarise_dt` has a "by" parameter to state the group. This might be good enough for many tasks, let me know if you need to do a frequent task by group. Because `tidydt` aims at processing big data, maybe I'll include parallel computing in the future.
