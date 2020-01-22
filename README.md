@@ -1,6 +1,6 @@
 # tidydt: Tidy Verbs for `data.table`<img src="man/figures/logo.png" align="right" alt="" width="120" />
 
-[![](https://www.r-pkg.org/badges/version/tidydt?color=orange)](https://cran.r-project.org/package=akc) ![](http://cranlogs.r-pkg.org/badges/grand-total/tidydt?color=green)  [![](https://img.shields.io/badge/devel%20version-0.1.5-blue.svg)](https://github.com/hope-data-science/tidydt) ![](https://img.shields.io/badge/lifecycle-maturing-blue.svg) ![Last-changedate](https://img.shields.io/badge/last%20update-2020--01--19-yellowgreen.svg)
+[![](https://www.r-pkg.org/badges/version/tidydt?color=orange)](https://cran.r-project.org/package=akc) ![](http://cranlogs.r-pkg.org/badges/grand-total/tidydt?color=green)  [![](https://img.shields.io/badge/devel%20version-0.2.0-blue.svg)](https://github.com/hope-data-science/tidydt) ![](https://img.shields.io/badge/lifecycle-maturing-blue.svg) ![Last-changedate](https://img.shields.io/badge/last%20update-2020--01--23-yellowgreen.svg)
 
 
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-`tidydt` is a toolkit of tidy data manipulation verbs with `data.table` as the backend (partly) via `maditr`. Combines the merits of syntax elegance from `dplyr` and computing performance from `data.table`,  `tidydt` intends to provide users with state-of-the-art data manipulation tools with least pain. This package is inspired by `maditr`, but follows a different philosophy of design,  such as prohibiting in place replacement and used a "_dt" suffix API. Also, `tidydt` would introduce more tidy data verbs from other packages, including but not limited to `tidyverse` and `data.table`.
+`tidydt` is a toolkit of tidy data manipulation verbs with `data.table` as the backend (partly) via `maditr`. Combines the merits of syntax elegance from `dplyr` and computing performance from `data.table`,  `tidydt` intends to provide users with state-of-the-art data manipulation tools with least pain. This package is inspired by `maditr`, but follows a different philosophy of design,  such as prohibiting in place replacement and used a "_dt" suffix API. Also, `tidydt` would introduce more tidy data verbs from other packages, including but not limited to `tidyverse` and `data.table`. If you are a `dplyr` user but have to use `data.table` for speedy computation, `tidydt` is designed for you (and me).
 
 
 
@@ -53,7 +53,7 @@ iris %>%
 
 ## Caution
 
-Simply rewriting `tidyverse` function with `data.table` is not desirable unless we have a leap in speed. `tidyverse` is great, it is encouraged to load `tidyverse` and `tidydt` together and use `tidydt` when you have to wait a long time. Another option is to use `tidydt::` to use specific functions. Currently, the flagship functions include `unnest_dt`, `summarise_dt`(this credit belongs to `maditr`), `count_dt`, `parse_fst`,`select_fst`, `replace_na_dt`(you'll know how fast it is if you are dealing with big data).
+Simply rewriting `tidyverse` function with `data.table` is not desirable unless we have a leap in speed. `tidyverse` is great, it is encouraged to load `tidyverse` and `tidydt` together and use `tidydt` when you have to wait a long time. Another option is to use `tidydt::` to use specific functions. If you are working with `tidyverse`, use `as_tibble` at the end of each function. Currently, the flagship functions include `unnest_dt`, `summarise_dt`(this credit belongs to `maditr`), `count_dt`, `parse_fst`,`select_fst`, `replace_na_dt`(you'll know how fast it is if you are dealing with big data).
 
 
 

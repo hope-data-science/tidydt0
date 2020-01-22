@@ -3,10 +3,10 @@
 #' @description Analogous function for \code{top_n} and \code{top_frac} in \pkg{dplyr}, but with a different API.
 #'
 #' @param data data.frame
-#' @param wt The numeric variable to use for ordering.
 #' @param n number of rows to return for `topn_dt()`, fraction of rows to return for `topfrac_dt()`.
 #'  Will include more rows if there are ties.
 #' @param n  If \code{n} is positive, selects the top rows. If negative, selects the bottom rows.
+#' @param wt The numeric variable to use for ordering.
 #' @return data.table
 #' @seealso \code{\link[dplyr]{top_n}},\code{\link[maditr]{dt_top_n}}
 #' @examples
@@ -19,7 +19,7 @@
 #' @rdname topn
 #' @export
 
-top_n_dt = function(data, wt,n){
+top_n_dt = function(data, n,wt){
   if(data[[deparse(substitute(wt))]] %>% class != "numeric")
     stop("Please use a numeric variable.")
   data = as.data.table(data)
@@ -44,7 +44,7 @@ top_n_dt = function(data, wt,n){
 #' @export
 #'
 ## put column name in front of number
-top_frac_dt = function(data, wt,n){
+top_frac_dt = function(data, n,wt){
   if(data[[deparse(substitute(wt))]] %>% class != "numeric")
     stop("Please use a numeric variable.")
   data = as.data.table(data)
