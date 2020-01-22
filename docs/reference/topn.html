@@ -134,9 +134,9 @@
     <p>Analogous function for <code>top_n</code> and <code>top_frac</code> in <span class="pkg">dplyr</span>, but with a different API.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>top_n_dt</span>(<span class='no'>data</span>, <span class='no'>wt</span>, <span class='no'>n</span>)
+    <pre class="usage"><span class='fu'>top_n_dt</span>(<span class='no'>data</span>, <span class='no'>n</span>, <span class='no'>wt</span>)
 
-<span class='fu'>top_frac_dt</span>(<span class='no'>data</span>, <span class='no'>wt</span>, <span class='no'>n</span>)</pre>
+<span class='fu'>top_frac_dt</span>(<span class='no'>data</span>, <span class='no'>n</span>, <span class='no'>wt</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,12 +146,12 @@
       <td><p>data.frame</p></td>
     </tr>
     <tr>
-      <th>wt</th>
-      <td><p>The numeric variable to use for ordering.</p></td>
-    </tr>
-    <tr>
       <th>n</th>
       <td><p>If <code>n</code> is positive, selects the top rows. If negative, selects the bottom rows.</p></td>
+    </tr>
+    <tr>
+      <th>wt</th>
+      <td><p>The numeric variable to use for ordering.</p></td>
     </tr>
     </table>
 

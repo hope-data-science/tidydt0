@@ -5,16 +5,16 @@
 \alias{top_frac_dt}
 \title{Select top (or bottom) n rows (by value)}
 \usage{
-top_n_dt(data, wt, n)
+top_n_dt(data, n, wt)
 
-top_frac_dt(data, wt, n)
+top_frac_dt(data, n, wt)
 }
 \arguments{
 \item{data}{data.frame}
 
-\item{wt}{The numeric variable to use for ordering.}
-
 \item{n}{If \code{n} is positive, selects the top rows. If negative, selects the bottom rows.}
+
+\item{wt}{The numeric variable to use for ordering.}
 }
 \value{
 data.table

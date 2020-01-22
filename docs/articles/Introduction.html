@@ -97,23 +97,18 @@
 
     
     
-<div id="story-ahead" class="section level2">
+<div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#story-ahead" class="anchor"></a>Story ahead</h2>
-<p>I am a big fan of <code>tidyverse</code>, however, when I have to deal with a data.frame of larger than 1G, I turned to <code>data.table</code>. But <code>data.table</code> is not easy, and is not so readable as <code>tidyverse</code>. Even today, I still need to explore for long time before I could use <code>data.table</code> correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use <code>tidyverse</code>. If the file is between 1G and 10G, I would use <code>data.table</code> to do some major work and turned back to <code>tidyverse</code> when possible. This has been annoying acutually.</p>
-<p>Until one day, I met <code>maditr</code> package. It told me that the manipulation of <code>data.table</code> does not have to be in this way. This could be done in a tidy way! And, you don’t even need to use other packages to build this elegant API, you just need <code>data.table</code> and <code>magrittr</code>! I was shocked! To use a fast <code>tidyverse</code> is what I dream for long, and it could!</p>
-<p>By now, Hadley has completed the <code>dtplyr</code>, which facilitate the workflow. However, many verbs are still not supported. I think it’s my time to contribute. I used a lot of functions from <code>maditr</code>, but with a different API. It has a specific goal: provide users with state-of-the-art data manipulation tools with least pain and fastest speed.</p>
-</div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
+<a href="#introduction" class="anchor"></a>Introduction</h2>
 <p>For most functions, just use it like <code>tidyverse</code>, but add a <code>_dt</code> as the suffix. This is mostly true for verbs in <code>dplyr</code>. Nevertheless, the data.table has different features, and some API varies, but only varies for more convenience. Below are the supported verbs:</p>
 <ul>
 <li>basic manipulation: select_dt/slice_dt/filter_dt/mutate_dt/arrange_dt/summarise_dt/rename_dt/dist inct_dt</li>
-<li>count family: count_dt/add_count_dt/topn_dt/topfrac_dt</li>
+<li>count family: count_dt/add_count_dt/top_n_dt/top_frac_dt</li>
 <li>join: left_join_dt/right_join_dt/inner_join_dt/full_join_dt/anti_join_dt/semi_join_dt</li>
 <li>nest: nest_dt/unnese_dt</li>
 <li>wide-long transformation: longer_dt/wider_dt</li>
+<li>mising values: drop_na_dt/replace_na_dt</li>
+<li>fst: parse_fst/select_fst</li>
 </ul>
 <p>I’ll give only one example so far, just explore yourself and enjoy the fun!</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidydt)</a>
@@ -123,20 +118,26 @@
 <a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt;   groupingsets.data.frame maditr</span></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt;   rollup.data.frame       maditr</span></a>
 <a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; To modify variables or add new variables:</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt;              let(mtcars, new_var = 42, new_var2 = new_var*hp) %&gt;% head()</span></a>
-<a class="sourceLine" id="cb1-10" title="10"></a>
-<a class="sourceLine" id="cb1-11" title="11">iris <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="st">  </span><span class="kw"><a href="../reference/mutate_dt.html">mutate_dt</a></span>(<span class="dt">group =</span> Species,<span class="dt">sl =</span> Sepal.Length,<span class="dt">sw =</span> Sepal.Width) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="st">  </span><span class="kw"><a href="../reference/select_dt.html">select_dt</a></span>(group,sl,sw) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-14" title="14"><span class="st">  </span><span class="kw"><a href="../reference/filter_dt.html">filter_dt</a></span>(sl <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="st">  </span><span class="kw"><a href="../reference/arrange_dt.html">arrange_dt</a></span>(group,sl) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="st">  </span><span class="kw"><a href="../reference/distinct_dt.html">distinct_dt</a></span>(sl,<span class="dt">keep_all =</span> T) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="st">  </span><span class="kw"><a href="../reference/summarise_dt.html">summarise_dt</a></span>(<span class="dt">sw =</span> <span class="kw"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(sw),<span class="dt">by =</span> group)</a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt;         group  sw</span></a>
-<a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt; 1:     setosa 4.4</span></a>
-<a class="sourceLine" id="cb1-20" title="20"><span class="co">#&gt; 2: versicolor 3.3</span></a>
-<a class="sourceLine" id="cb1-21" title="21"><span class="co">#&gt; 3:  virginica 3.8</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Tidyverse is elegant, data.table is fast. Tidydt tries to merge both.</span></a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10">iris <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="st">  </span><span class="kw"><a href="../reference/mutate_dt.html">mutate_dt</a></span>(<span class="dt">group =</span> Species,<span class="dt">sl =</span> Sepal.Length,<span class="dt">sw =</span> Sepal.Width) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="st">  </span><span class="kw"><a href="../reference/select_dt.html">select_dt</a></span>(group,sl,sw) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="st">  </span><span class="kw"><a href="../reference/filter_dt.html">filter_dt</a></span>(sl <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="st">  </span><span class="kw"><a href="../reference/arrange_dt.html">arrange_dt</a></span>(group,sl) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="st">  </span><span class="kw"><a href="../reference/distinct_dt.html">distinct_dt</a></span>(sl,<span class="dt">keep_all =</span> T) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="st">  </span><span class="kw"><a href="../reference/summarise_dt.html">summarise_dt</a></span>(<span class="dt">sw =</span> <span class="kw"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(sw),<span class="dt">by =</span> group)</a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">#&gt;         group  sw</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt; 1:     setosa 4.4</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt; 2: versicolor 3.3</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co">#&gt; 3:  virginica 3.8</span></a></code></pre></div>
+</div>
+<div id="story" class="section level2">
+<h2 class="hasAnchor">
+<a href="#story" class="anchor"></a>Story</h2>
+<p>I am a big fan of <code>tidyverse</code>, however, when I have to deal with a data.frame of larger than 1G, I turned to <code>data.table</code>. But <code>data.table</code> is not easy, and is not so readable as <code>tidyverse</code>. Even today, I still need to explore for long time before I could use <code>data.table</code> correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use <code>tidyverse</code>. If the file is between 1G and 10G, I would use <code>data.table</code> to do some major work and turned back to <code>tidyverse</code> when possible. This has been annoying acutually.</p>
+<p>Until one day, I met <code>maditr</code> package. It told me that the manipulation of <code>data.table</code> does not have to be in this way. This could be done in a tidy way! And, you don’t even need to use other packages to build this elegant API, you just need <code>data.table</code> and <code>magrittr</code>! I was shocked! To use a fast <code>tidyverse</code> is what I dream for long, and it could!</p>
+<p>By now, Hadley has completed the <code>dtplyr</code>, which facilitate the workflow. However, many verbs are still not supported. I think it’s my time to contribute. I used a lot of functions from <code>maditr</code>, but with a different API. It has a specific goal: provide users with state-of-the-art data manipulation tools with least pain and fastest speed.</p>
 </div>
   </div>
 
@@ -146,8 +147,8 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#story-ahead">Story ahead</a></li>
-      <li><a href="#examples">Examples</a></li>
+<li><a href="#introduction">Introduction</a></li>
+      <li><a href="#story">Story</a></li>
       </ul>
 </div>
       </div>
