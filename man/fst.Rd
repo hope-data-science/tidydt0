@@ -4,11 +4,14 @@
 \alias{fst}
 \alias{parse_fst}
 \alias{select_fst}
+\alias{filter_fst}
 \title{Parse,inspect and extract `data.table` from `.fst` file}
 \usage{
 parse_fst(path)
 
 select_fst(ft, pattern)
+
+filter_fst(ft, ...)
 }
 \arguments{
 \item{path}{path to fst file}
@@ -20,7 +23,7 @@ select_fst(ft, pattern)
 \value{
 \code{parse_fst} returns a fst_table class.
 
-\code{select_fst} returns a data.table.
+\code{select_fst} and \code{filter_fst} returns a data.table.
 }
 \description{
 An API for reading fst file as data.table.
@@ -32,6 +35,11 @@ parse_fst("iris_fst_test.fst") -> ft
 ft
 ft \%>\% select_fst("Se")
 ft \%>\% select_fst("nothing")
+ft \%>\% select_fst("Se|Sp")
+
+ft \%>\% filter_fst(Sepal.Width > 3)
+ft \%>\% filter_fst(Sepal.Length > 6 , Species == "virginica")
+ft \%>\% filter_fst(Sepal.Length > 6 & Species == "virginica" & Sepal.Width < 3)
 
 rm(ft)
 unlink("iris_fst_test.fst")

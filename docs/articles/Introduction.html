@@ -118,7 +118,7 @@
 <a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt;   groupingsets.data.frame maditr</span></a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt;   rollup.data.frame       maditr</span></a>
 <a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Tidyverse is elegant, data.table is fast. Tidydt tries to merge both.</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt; Life's short, use R.</span></a>
 <a class="sourceLine" id="cb1-9" title="9"></a>
 <a class="sourceLine" id="cb1-10" title="10">iris <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb1-11" title="11"><span class="st">  </span><span class="kw"><a href="../reference/mutate_dt.html">mutate_dt</a></span>(<span class="dt">group =</span> Species,<span class="dt">sl =</span> Sepal.Length,<span class="dt">sw =</span> Sepal.Width) <span class="op">%&gt;%</span></a>
@@ -135,7 +135,7 @@
 <div id="story" class="section level2">
 <h2 class="hasAnchor">
 <a href="#story" class="anchor"></a>Story</h2>
-<p>I am a big fan of <code>tidyverse</code>, however, when I have to deal with a data.frame of larger than 1G, I turned to <code>data.table</code>. But <code>data.table</code> is not easy, and is not so readable as <code>tidyverse</code>. Even today, I still need to explore for long time before I could use <code>data.table</code> correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use <code>tidyverse</code>. If the file is between 1G and 10G, I would use <code>data.table</code> to do some major work and turned back to <code>tidyverse</code> when possible. This has been annoying acutually.</p>
+<p>I am a big fan of <code>tidyverse</code>, however, when I have to deal with a data.frame larger than 1G, I turned to <code>data.table</code>. But <code>data.table</code> is not easy, and is not so readable as <code>tidyverse</code>. Even today, I still need to explore for long time before I could use <code>data.table</code> correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use <code>tidyverse</code>. If the file is between 1G and 10G, I would use <code>data.table</code> to do some major work and turned back to <code>tidyverse</code> when possible. This has been annoying acutually.</p>
 <p>Until one day, I met <code>maditr</code> package. It told me that the manipulation of <code>data.table</code> does not have to be in this way. This could be done in a tidy way! And, you don’t even need to use other packages to build this elegant API, you just need <code>data.table</code> and <code>magrittr</code>! I was shocked! To use a fast <code>tidyverse</code> is what I dream for long, and it could!</p>
 <p>By now, Hadley has completed the <code>dtplyr</code>, which facilitate the workflow. However, many verbs are still not supported. I think it’s my time to contribute. I used a lot of functions from <code>maditr</code>, but with a different API. It has a specific goal: provide users with state-of-the-art data manipulation tools with least pain and fastest speed.</p>
 </div>
