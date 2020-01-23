@@ -5,7 +5,7 @@ library(pacman)
 p_load(devtools,usethis,roxygen2,pkgdown,badger)
 
 
-p_load(maditr,fst)
+p_load(maditr,fst,glue,stringr,data.table)
 
 
 # use_r("global_setting")

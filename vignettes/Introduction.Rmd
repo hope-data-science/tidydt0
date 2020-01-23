@@ -48,7 +48,7 @@ iris %>%
 
 ## Story 
 
-   I am a big fan of `tidyverse`, however, when I have to deal with a data.frame of larger than 1G, I turned to `data.table`. But `data.table` is not easy, and is not so readable as `tidyverse`. Even today, I still need to explore for long time before I could use `data.table` correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use `tidyverse`. If the file is between 1G and 10G, I would use `data.table` to do some major work and turned back to `tidyverse` when possible. This has been annoying acutually.  
+   I am a big fan of `tidyverse`, however, when I have to deal with a data.frame larger than 1G, I turned to `data.table`. But `data.table` is not easy, and is not so readable as `tidyverse`. Even today, I still need to explore for long time before I could use `data.table` correctly for specific occations. Therefore, when the data is smaller than 1G, I would always use `tidyverse`. If the file is between 1G and 10G, I would use `data.table` to do some major work and turned back to `tidyverse` when possible. This has been annoying acutually.  
    
   Until one day, I met `maditr` package. It told me that the manipulation of `data.table` does not have to be in this way. This could be done in a tidy way! And, you don't even need to use other packages to build this elegant API, you just need `data.table` and `magrittr`! I was shocked! To use a fast `tidyverse` is what I dream for long, and it could!  
   
